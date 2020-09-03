@@ -1,6 +1,5 @@
-package ru.bank.server;
+package ru.bank.pay;
 
 public interface Pay {
     void pay();
-
 }
