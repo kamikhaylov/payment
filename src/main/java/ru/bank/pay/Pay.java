@@ -1,5 +1,7 @@
 package ru.bank.pay;
 
+import ru.bank.exceptionPaymentAttributes.ExceptionNumberMobilePhone;
+
 public interface Pay {
-    void pay();
+    void pay() throws ExceptionNumberMobilePhone;
 }

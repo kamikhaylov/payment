@@ -12,6 +12,14 @@ public class User {
         this.AccountNumberUser = AccountNumberUser;
     }
 
+    public NumberMobilePhone getNumberMobilePhoneUser() {
+        return numberMobilePhoneUser;
+    }
+
+    public NumberAccount getAccountNumberUser() {
+        return AccountNumberUser;
+    }
+
     @Override
     public String toString() {
         return "Данные о пользователе: \n" +

@@ -1,9 +1,13 @@
 package ru.bank.paymentAttributes;
 
 public class NumberAccount {
-    private long numberAccount;
+    private String numberAccount;
 
-    public NumberAccount(long numberAccount) {
+    public NumberAccount(String numberAccount) {
         this.numberAccount = numberAccount;
+    }
+
+    public String getNumberAccount() {
+        return numberAccount;
     }
 }

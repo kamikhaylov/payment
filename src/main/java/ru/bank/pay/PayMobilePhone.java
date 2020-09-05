@@ -7,14 +7,14 @@ import ru.bank.users.User;
 public class PayMobilePhone implements Pay {
 
     private long transferAmount;
-    private String сurrencyMoney;
+    private String сurrencyMoneyUser;
     private User user;
     private User client;
     private Server server;
 
-    public PayMobilePhone(long transferAmount, String сurrencyMoney, User user, User client, Server server) {
+    public PayMobilePhone(long transferAmount, String сurrencyMoneyUser, User user, User client, Server server) {
         this.transferAmount = transferAmount;
-        this.сurrencyMoney = сurrencyMoney;
+        this.сurrencyMoneyUser = сurrencyMoneyUser;
         this.user = user;
         this.client = client;
         this.server = server;
@@ -22,7 +22,12 @@ public class PayMobilePhone implements Pay {
 
     @Override
     public void pay() {
-        System.out.println("Оплата со счета пользователя " +
-                "на счет клиента произведена успешно");
+
+        //   user.getNumberMobilePhoneUser().checkNumber();
+
+        System.out.println("Оплата со счета пользователя: " + user.getAccountNumberUser().getNumberAccount() +
+                " на счет клиента: " + client.getAccountNumberUser().getNumberAccount() + " произведена успешно. \n" +
+                "Сумма платежа: " + transferAmount + " " + сurrencyMoneyUser);
+
     }
 }
