@@ -7,7 +7,7 @@ public class ExceptionNumberMobilePhone extends Exception {
         super(message);
         this.checkNumber = checkNumber;
     }
-
+ 
     public String getCheckNumber() {
         return checkNumber;
     }
