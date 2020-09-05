@@ -14,17 +14,17 @@ public class NumberMobilePhone {
     }
 
     public String checkNumber(String numberMobilePhone) throws ExceptionNumberMobilePhone {
-
+        String numberCheck = numberMobilePhone;
         String checkStatus = "";
+
         try {
-            Long number = Long.parseLong(numberMobilePhone);
+            Long number = Long.parseLong(numberCheck);
         } catch (Exception e) {
-            checkStatus = "Неправильный формат номера: " + numberMobilePhone +
-                    ", номер должен содержать только цифры ";
-            System.out.println(e);
+            throw new ExceptionNumberMobilePhone("Неправильный формат номера, номер должен содержать только цифры", numberCheck);
         }
-        if (numberMobilePhone.length() != 11) {
-            throw new ExceptionNumberMobilePhone("Неправильный формат номера, номер должен содержать 11 цифр", numberMobilePhone);
+
+        if (numberCheck.length() != 11) {
+            throw new ExceptionNumberMobilePhone("Неправильный формат номера, номер должен содержать 11 цифр", numberCheck);
         }
         return checkStatus;
     }

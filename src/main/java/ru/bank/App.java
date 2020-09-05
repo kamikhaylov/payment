@@ -14,7 +14,7 @@ public class App {
         NumberAccount debitAccountNumberUser = new NumberAccount("1111222233334444");
         User user = new User(numberMobilePhoneUser, debitAccountNumberUser);
 
-        NumberMobilePhone numberMobilePhoneClient = new NumberMobilePhone("89002002020");
+        NumberMobilePhone numberMobilePhoneClient = new NumberMobilePhone("890020020l0");
         NumberAccount transferAccountNumberClient = new NumberAccount("1111222233334444");
         User client = new User(numberMobilePhoneClient, transferAccountNumberClient);
 

@@ -1,5 +1,6 @@
 package ru.bank.pay;
 
+import ru.bank.exceptionPaymentAttributes.ExceptionNumberMobilePhone;
 import ru.bank.server.Server;
 import ru.bank.users.User;
 
@@ -23,11 +24,14 @@ public class PayMobilePhone implements Pay {
     @Override
     public void pay() {
 
-        //   user.getNumberMobilePhoneUser().checkNumber();
-
-        System.out.println("Оплата со счета пользователя: " + user.getAccountNumberUser().getNumberAccount() +
-                " на счет клиента: " + client.getAccountNumberUser().getNumberAccount() + " произведена успешно. \n" +
-                "Сумма платежа: " + transferAmount + " " + сurrencyMoneyUser);
-
+        try {
+            client.getNumberMobilePhoneUser().checkNumber(client.getNumberMobilePhoneUser().getNumberMobilePhone());
+            System.out.println("Оплата со счета пользователя: " + user.getAccountNumberUser().getNumberAccount() +
+                    " на номер телефона клиента: " + client.getNumberMobilePhoneUser().getNumberMobilePhone() + " произведена успешно. \n" +
+                    "Сумма платежа: " + transferAmount + " " + сurrencyMoneyUser);
+        } catch (ExceptionNumberMobilePhone e) {
+            System.out.println(e);
+            System.out.println("Оплата не произведена");
+        }
     }
 }
