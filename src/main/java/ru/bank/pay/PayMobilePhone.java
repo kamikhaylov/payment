@@ -1,5 +1,6 @@
 package ru.bank.pay;
 
+import ru.bank.exceptionPaymentAttributes.ExceptionAmountAccount;
 import ru.bank.exceptionPaymentAttributes.ExceptionNumberMobilePhone;
 import ru.bank.server.Server;
 import ru.bank.users.User;
@@ -26,9 +27,18 @@ public class PayMobilePhone implements Pay {
 
         try {
             client.getNumberMobilePhoneUser().checkNumber(client.getNumberMobilePhoneUser().getNumberMobilePhone());
-            System.out.println("Оплата со счета пользователя: " + user.getAccountNumberUser().getNumberAccount() +
-                    " на номер телефона клиента: " + client.getNumberMobilePhoneUser().getNumberMobilePhone() + " произведена успешно. \n" +
-                    "Сумма платежа: " + transferAmount + " " + сurrencyMoneyUser);
+            if (!(transferAmount <= user.getAccountNumberUser().getAmountAccount())) {
+                try {
+                    throw new ExceptionAmountAccount("Недостаточно средств на счету", transferAmount);
+                } catch (ExceptionAmountAccount e) {
+                    System.out.println(e);
+                    System.out.println("Оплата не произведена");
+                }
+            } else {
+                System.out.println("Оплата со счета пользователя: " + user.getAccountNumberUser().getNumberAccount() +
+                        " на номер телефона клиента: " + client.getNumberMobilePhoneUser().getNumberMobilePhone() + " произведена успешно. \n" +
+                        "Сумма платежа: " + transferAmount + " " + сurrencyMoneyUser);
+            }
         } catch (ExceptionNumberMobilePhone e) {
             System.out.println(e);
             System.out.println("Оплата не произведена");

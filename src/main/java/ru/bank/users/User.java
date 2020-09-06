@@ -8,6 +8,10 @@ public class User {
     private NumberMobilePhone numberMobilePhoneUser;
     private NumberAccount AccountNumberUser;
 
+    public User(NumberMobilePhone numberMobilePhoneUser) {
+        this.numberMobilePhoneUser = numberMobilePhoneUser;
+    }
+
     public User(NumberMobilePhone numberMobilePhoneUser, NumberAccount AccountNumberUser) {
         this.numberMobilePhoneUser = numberMobilePhoneUser;
         this.AccountNumberUser = AccountNumberUser;
