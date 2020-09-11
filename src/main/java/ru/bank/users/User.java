@@ -1,34 +1,19 @@
-
 package ru.bank.users;
 
-import ru.bank.paymentAttributes.NumberAccount;
-import ru.bank.paymentAttributes.NumberMobilePhone;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.ToString;
+import ru.bank.users.paymentAttributes.NumberAccount;
 
+@AllArgsConstructor
+@Getter
+@ToString
 public class User {
-    private NumberMobilePhone numberMobilePhoneUser;
-    private NumberAccount AccountNumberUser;
+    private String numberPhone;
+    private NumberAccount numberAccount;
 
-    public User(NumberMobilePhone numberMobilePhoneUser) {
-        this.numberMobilePhoneUser = numberMobilePhoneUser;
+    public User(String numberPhone) {
+        this.numberPhone = numberPhone;
     }
 
-    public User(NumberMobilePhone numberMobilePhoneUser, NumberAccount AccountNumberUser) {
-        this.numberMobilePhoneUser = numberMobilePhoneUser;
-        this.AccountNumberUser = AccountNumberUser;
-    }
-
-    public NumberMobilePhone getNumberMobilePhoneUser() {
-        return numberMobilePhoneUser;
-    }
-
-    public NumberAccount getAccountNumberUser() {
-        return AccountNumberUser;
-    }
-
-    @Override
-    public String toString() {
-        return "Данные о пользователе: \n" +
-                "Номер мобильного телефона: " + this.numberMobilePhoneUser + "\n" +
-                "Номер счета: " + this.AccountNumberUser + "\n";
-    }
 }
