@@ -29,12 +29,12 @@ public class BankServer implements Server {
 
     public void makePaymentPhone(int transferAmount, String сurrencyMoney, User user, User client, String paymentIdentifier) {
         System.out.println("Получен запрос от пользователя " + user.getNumberPhone());
-        listPaymentIdentifier.add(paymentIdentifier);
-        userDetails.put(user.getNumberPhone(), user);
         PaymentIndetifierValidation paymentIndetifierValidation = new PaymentIndetifierValidation(paymentIdentifier, listPaymentIdentifier);
 
         try {
             paymentIndetifierValidation.checkDoublePaymentPhone();
+            listPaymentIdentifier.add(paymentIdentifier);
+            userDetails.put(user.getNumberPhone(), user);
             PaymentPhone paymentPhone = new PaymentPhone();
             paymentPhone.pay(transferAmount, сurrencyMoney, user, client);
         } catch (PaymentIndetifierException e) {

@@ -28,9 +28,6 @@ public class WebApplication implements Application {
 //            Эмитация повторного запроса
 //            commandServerInput.execute(transferAmount, currencyMoney, user, client, bankServer, "90011111110");
 
-            for (String list : listPaymentIndentifier) {
-                System.out.println(list);
-            }
         } catch (NumberPhoneException e) {
             System.out.println(e);
             System.out.println(e.getNumberPhone());
