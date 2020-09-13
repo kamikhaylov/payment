@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.ToString;
 import ru.bank.command.PaymentPhone;
 import ru.bank.exception.server.PaymentIndetifierException;
+import ru.bank.server.baseUsers.BaseUsers;
 import ru.bank.server.validation.PaymentIndetifierValidation;
 import ru.bank.users.User;
 
@@ -17,6 +18,8 @@ public class BankServer implements Server {
     private String port;
     private String protocol;
     private String server;
+
+    BaseUsers baseUsers = new BaseUsers();
 
     public BankServer(String ip, String port, String protocol, String server) {
         this.ip = ip;

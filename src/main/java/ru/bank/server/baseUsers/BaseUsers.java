@@ -6,8 +6,6 @@ import java.util.HashMap;
 
 public class BaseUsers {
     HashMap<String, User> baseUser = new HashMap<>();
-    private String numberPhone;
-    private User user;
 
     public void putUser(User user) {
         baseUser.put(user.getNumberPhone(), user);
