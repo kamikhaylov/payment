@@ -31,7 +31,6 @@ public class WebApplication implements Application {
         } catch (NumberPhoneException e) {
             System.out.println(e);
             System.out.println(e.getNumberPhone());
-            throw e;
         }
     }
 

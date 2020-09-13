@@ -1,15 +1,14 @@
 package ru.bank.command;
 
 import lombok.AllArgsConstructor;
-import ru.bank.users.User;
 
 @AllArgsConstructor
 public class PaymentPhone implements Pay {
 
-    public void pay(int transferAmount, String сurrencyMoney, User user, User client) {
+    public void pay(int transferAmount, String сurrencyMoney, String numberAccountUser, String numberPhoneClient) {
 
-        System.out.println("Оплата со счета пользователя: " + user.getNumberAccount().getNumberAccount() +
-                " на номер телефона клиента: " + client.getNumberPhone() + " произведена успешно. \n" +
+        System.out.println("Оплата со счета пользователя: " + numberAccountUser +
+                " на номер телефона клиента: " + numberPhoneClient + " произведена успешно. \n" +
                 "Сумма платежа: " + transferAmount + " " + сurrencyMoney);
 
     }

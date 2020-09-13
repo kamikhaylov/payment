@@ -36,11 +36,10 @@ public class BankServer implements Server {
             listPaymentIdentifier.add(paymentIdentifier);
             userDetails.put(user.getNumberPhone(), user);
             PaymentPhone paymentPhone = new PaymentPhone();
-            paymentPhone.pay(transferAmount, сurrencyMoney, user, client);
+            paymentPhone.pay(transferAmount, сurrencyMoney, user.getNumberAccount().getNumberAccount(), client.getNumberPhone());
         } catch (PaymentIndetifierException e) {
             System.out.println(e);
             System.out.println(e.getPaymentIndetifier());
-            throw e;
         }
     }
 
