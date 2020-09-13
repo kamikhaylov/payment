@@ -8,12 +8,10 @@ import ru.bank.server.validation.PaymentIndetifierValidation;
 import ru.bank.users.User;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 @Getter
 @ToString
 public class BankServer implements Server {
-    HashMap<String, User> userDetails = new HashMap<String, User>();
     ArrayList<String> listPaymentIdentifier = new ArrayList<String>();
     private String ip;
     private String port;
@@ -34,7 +32,6 @@ public class BankServer implements Server {
         try {
             paymentIndetifierValidation.checkDoublePaymentPhone();
             listPaymentIdentifier.add(paymentIdentifier);
-            userDetails.put(user.getNumberPhone(), user);
             PaymentPhone paymentPhone = new PaymentPhone();
             paymentPhone.pay(transferAmount, сurrencyMoney, user.getNumberAccount().getNumberAccount(), client.getNumberPhone());
         } catch (PaymentIndetifierException e) {
@@ -44,6 +41,5 @@ public class BankServer implements Server {
     }
 
     public void viewDetailsUser(String numberPhone) {
-        System.out.println(userDetails.get(numberPhone));
     }
 }
