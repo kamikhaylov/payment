@@ -34,6 +34,10 @@ public class Main {
         // Запрос деталей пользователя
         System.out.print("Детали пользователя: ");
         bankServer.getBaseUsers().viewDetailsUser("+79001111111");
-        bankServer.getBaseUsers().viewDetailsUser("+79002222222");
+
+        // Запрос информации о платеже
+        System.out.print("Детали платежа: ");
+        bankServer.getHisoryTransaction().viewDetailsTransaction(1);
+
     }
 }
