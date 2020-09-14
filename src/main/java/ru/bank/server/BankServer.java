@@ -43,7 +43,6 @@ public class BankServer implements Server {
             paymentPhone.pay(transferAmount, сurrencyMoney, user.getNumberAccount().getNumberAccount(), client.getNumberPhone());
             InfoTransaction infoTransaction = new InfoTransaction(numberTransaction, user, client, transferAmount, сurrencyMoney);
             hisoryTransaction.putNumberTransaction(infoTransaction);
-
         } catch (PaymentIndetifierException e) {
             System.out.println(e);
             System.out.println(e.getPaymentIndetifier());

@@ -12,7 +12,7 @@ public class Main {
 
 
         // Инициализируется пользователь приложения, добавление в коллекцию храннения базы данных
-        NumberAccount debitAccountNumberUser = new NumberAccount("1111222233334444", 500000000);
+        NumberAccount debitAccountNumberUser = new NumberAccount("1111222233334444", 500000000, СurrencyMoney.RUB.name());
         User user = new User("+79001111111", debitAccountNumberUser);
 
         // Инициализируется клиент банка, на чей номер телефона будет осуществляться перевод

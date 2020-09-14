@@ -7,7 +7,6 @@ public class HisoryTransaction {
     HashMap<Integer, InfoTransaction> mapBaseTransaction = new HashMap<>();
     ArrayList<Integer> listNumberTransaction = new ArrayList<>();
 
-
     public Integer newNumberTransaction() {
         int newNumberTransaction, lastNumbertTransaction;
 
@@ -16,7 +15,6 @@ public class HisoryTransaction {
             listNumberTransaction.add(numberTransaction);
         }
 
-        System.out.println(listNumberTransaction.size());
         lastNumbertTransaction = listNumberTransaction.get(listNumberTransaction.size() - 1);
         newNumberTransaction = lastNumbertTransaction + 1;
         listNumberTransaction.add(newNumberTransaction);
