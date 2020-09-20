@@ -46,6 +46,7 @@ public class BankServer implements Server {
         } catch (PaymentIndetifierException e) {
             System.out.println(e);
             System.out.println(e.getPaymentIndetifier());
+            throw e;
         }
     }
 }

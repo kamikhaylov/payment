@@ -3,9 +3,10 @@ package ru.bank.server.baseUsers;
 import ru.bank.users.User;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class BaseUsers {
-    HashMap<String, User> mapBaseUser = new HashMap<>();
+    Map<String, User> mapBaseUser = new HashMap<>();
 
     public void putUser(User user) {
         mapBaseUser.put(user.getNumberPhone(), user);

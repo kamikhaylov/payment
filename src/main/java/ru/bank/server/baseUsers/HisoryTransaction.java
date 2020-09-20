@@ -2,10 +2,12 @@ package ru.bank.server.baseUsers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class HisoryTransaction {
-    HashMap<Integer, InfoTransaction> mapBaseTransaction = new HashMap<>();
-    ArrayList<Integer> listNumberTransaction = new ArrayList<>();
+    Map<Integer, InfoTransaction> mapBaseTransaction = new HashMap<>();
+    List<Integer> listNumberTransaction = new ArrayList<>();
 
     public Integer newNumberTransaction() {
         int newNumberTransaction, lastNumbertTransaction;

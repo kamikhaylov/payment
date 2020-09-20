@@ -4,15 +4,15 @@ import ru.bank.app.WebApplication;
 import ru.bank.server.BankServer;
 import ru.bank.users.User;
 import ru.bank.users.paymentAttributes.NumberAccount;
+import ru.bank.users.paymentAttributes.NumberAccountIndividual;
 import ru.bank.users.paymentAttributes.СurrencyMoney;
 
 public class Main {
 
     public static void main(String[] args) {
 
-
         // Инициализируется пользователь приложения, добавление в коллекцию храннения базы данных
-        NumberAccount debitAccountNumberUser = new NumberAccount("1111222233334444", 500000000, СurrencyMoney.RUB.name());
+        NumberAccount debitAccountNumberUser = new NumberAccountIndividual("1111222233334444", 500000000, СurrencyMoney.RUB.name());
         User user = new User("+79001111111", debitAccountNumberUser);
 
         // Инициализируется клиент банка, на чей номер телефона будет осуществляться перевод

@@ -1,9 +1,10 @@
 package ru.bank.command;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GenerateIndenifier {
-    ArrayList<String> listPaymentIndentifier = new ArrayList<String>();
+    List<String> listPaymentIndentifier = new ArrayList<String>();
     private String identifier;
 
     public String generateIndenifier(String numberPhone) {
