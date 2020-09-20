@@ -38,6 +38,5 @@ public class Main {
         // Запрос информации о платеже
         System.out.print("Детали платежа: ");
         bankServer.getHisoryTransaction().viewDetailsTransaction(1);
-
     }
 }

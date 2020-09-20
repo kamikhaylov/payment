@@ -13,7 +13,8 @@ public class PaymentIndetifierValidation {
     public PaymentIndetifierValidation checkDoublePaymentPhone() throws PaymentIndetifierException {
         for (String list : listPaymentIndetifier) {
             if (paymentIndetifier.equals(list)) {
-                throw new PaymentIndetifierException("Дублирующий запрос платежа: " + paymentIndetifier, paymentIndetifier);
+                throw new PaymentIndetifierException("Дублирующий запрос платежа: "
+                        + paymentIndetifier, paymentIndetifier);
             }
         }
         return this;

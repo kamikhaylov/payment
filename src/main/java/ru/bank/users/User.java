@@ -15,5 +15,4 @@ public class User {
     public User(String numberPhone) {
         this.numberPhone = numberPhone;
     }
-
 }

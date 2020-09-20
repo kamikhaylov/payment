@@ -15,5 +15,4 @@ public class BaseUsers {
     public void viewDetailsUser(String numberPhone) {
         System.out.println(mapBaseUser.get(numberPhone));
     }
-
 }
