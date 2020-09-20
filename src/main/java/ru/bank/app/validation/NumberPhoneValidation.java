@@ -6,7 +6,7 @@ import ru.bank.exception.app.NumberPhoneException;
 
 @AllArgsConstructor
 @Getter
-public class NumberPhoneValidation<T> {
+public class NumberPhoneValidation {
     private String numberPhone;
 
     public NumberPhoneValidation checkPrefix() {
