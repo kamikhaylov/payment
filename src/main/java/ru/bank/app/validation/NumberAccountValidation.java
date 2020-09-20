@@ -12,8 +12,7 @@ public class NumberAccountValidation<T extends NumberAccount> {
 
     public NumberAccountValidation checkLength() {
         if (numberAccount.getNumberAccount().length() != 16) {
-            throw new NumberAccountException("Неправильный формат счета, номер счет должен содержать 16 цифр "
-                    + numberAccount.getNumberAccount(), numberAccount.getNumberAccount());
+            throw new NumberAccountException("Неправильный формат счета, номер счет должен содержать 16 цифр " + numberAccount.getNumberAccount(), numberAccount.getNumberAccount());
         }
         return this;
     }
@@ -21,8 +20,7 @@ public class NumberAccountValidation<T extends NumberAccount> {
     public NumberAccountValidation checkAllNumber() {
         for (int i = 0; i < numberAccount.getNumberAccount().length(); i++) {
             if (!Character.isDigit(numberAccount.getNumberAccount().charAt(i))) {
-                throw new NumberAccountException("Неправильный формат счета, номер счета должен только цифры "
-                        + numberAccount.getNumberAccount(), numberAccount.getNumberAccount());
+                throw new NumberAccountException("Неправильный формат счета, номер счета должен только цифры " + numberAccount.getNumberAccount(), numberAccount.getNumberAccount());
             }
         }
         return this;

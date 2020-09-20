@@ -25,8 +25,7 @@ class NumberAccountValidationTest {
     void checkLength() {
         try {
             numberAccountValidation.checkLength();
-            System.out.println("Проверка checkLength пройдена: "
-                    + numberAccountValidation.getNumberAccount());
+            System.out.println("Проверка checkLength пройдена: " + numberAccountValidation.getNumberAccount());
         } catch (NumberAccountException e) {
             System.out.println(e);
             System.out.println(e.getNumberAccount());
@@ -37,8 +36,7 @@ class NumberAccountValidationTest {
     void checkAllNumber() {
         try {
             numberAccountValidation.checkAllNumber();
-            System.out.println("Проверка checkAllNumber пройдена: "
-                    + numberAccountValidation.getNumberAccount());
+            System.out.println("Проверка checkAllNumber пройдена: " + numberAccountValidation.getNumberAccount());
         } catch (NumberAccountException e) {
             System.out.println(e);
             System.out.println(e.getNumberAccount());
