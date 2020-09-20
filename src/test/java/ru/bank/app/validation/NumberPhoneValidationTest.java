@@ -14,7 +14,6 @@ class NumberPhoneValidationTest {
     NumberPhoneValidation numberPhoneValidationCheckLength2;
     NumberPhoneValidation numberPhoneValidationCheckAllNumber;
 
-
     @BeforeEach
     void setUp() {
         numberPhoneValidation = new NumberPhoneValidation("+79001234567");
@@ -40,14 +39,14 @@ class NumberPhoneValidationTest {
         }
         try {
             numberPhoneValidationCheckPrefix1.checkPrefix();
-            System.out.println("Проверка checkPrefix пройдена");
+            System.out.println("Проверка checkPrefix пройдена " + numberPhoneValidationCheckPrefix1.getNumberPhone());
         } catch (NumberPhoneException e) {
             System.out.println(e);
             System.out.println(e.getNumberPhone());
         }
         try {
             numberPhoneValidationCheckPrefix2.checkPrefix();
-            System.out.println("Проверка checkPrefix пройдена");
+            System.out.println("Проверка checkPrefix пройдена " + numberPhoneValidationCheckPrefix2.getNumberPhone());
         } catch (NumberPhoneException e) {
             System.out.println(e);
             System.out.println(e.getNumberPhone());
