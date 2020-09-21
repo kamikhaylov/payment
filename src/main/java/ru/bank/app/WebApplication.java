@@ -23,7 +23,7 @@ public class WebApplication implements Application {
         NumberAccountValidation<NumberAccount> numberAccountValidation = new NumberAccountValidation<>(user.getNumberAccount());
         try {
             numberPhoneValidation.checkPrefix().checkLength().checkAllNumber();
-            numberAccountValidation.checkLength().checkLength();
+            numberAccountValidation.checkLength().checkAllNumber();
             CommandServerInput commandServerInput = new CommandServerInput();
             commandServerInput.execute(transferAmount, currencyMoney, user, client, bankServer, generateIndenifier.generateIndenifier(user.getNumberPhone()));
         } catch (NumberPhoneException e) {
