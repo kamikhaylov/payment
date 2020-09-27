@@ -21,6 +21,7 @@ public class WebApplication implements Application {
     public void makePaymentPhone(int transferAmount, String currencyMoney, User user, User client, BankServer bankServer) {
         NumberPhoneValidation numberPhoneValidation = new NumberPhoneValidation(client.getNumberPhone());
         NumberAccountValidation<NumberAccount> numberAccountValidation = new NumberAccountValidation<>(user.getNumberAccount());
+
         try {
             numberPhoneValidation.checkPrefix().checkLength().checkAllNumber();
             numberAccountValidation.checkLength().checkAllNumber();
