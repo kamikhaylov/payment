@@ -1,6 +1,6 @@
 package ru.bank.app.validation;
 
-import ru.bank.exception.app.NumberAccountException;
+import ru.bank.app.exception.NumberAccountException;
 import ru.bank.users.paymentAttributes.NumberAccount;
 
 import java.util.function.Supplier;

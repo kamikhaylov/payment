@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 public class PaymentPhone implements Pay {
 
+    @Override
     public void pay(int transferAmount, String сurrencyMoney, String numberAccountUser, String numberPhoneClient) {
 
         System.out.println("Оплата со счета пользователя: " + numberAccountUser +

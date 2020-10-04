@@ -1,4 +1,4 @@
-package ru.bank.exception.app;
+package ru.bank.app.exception;
 
 public class NumberPhoneException extends RuntimeException {
     private String numberPhone;

@@ -3,7 +3,7 @@ package ru.bank.app.validation;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.bank.exception.app.NumberPhoneException;
+import ru.bank.app.exception.NumberPhoneException;
 
 class NumberPhoneValidationTest {
 

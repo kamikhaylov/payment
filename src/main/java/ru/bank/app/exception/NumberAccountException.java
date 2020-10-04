@@ -1,4 +1,4 @@
-package ru.bank.exception.app;
+package ru.bank.app.exception;
 
 public class NumberAccountException extends RuntimeException {
     private String numberAccount;

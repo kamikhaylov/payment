@@ -1,7 +1,7 @@
 package ru.bank.server.validation;
 
 import lombok.AllArgsConstructor;
-import ru.bank.exception.server.PaymentIndetifierException;
+import ru.bank.server.exception.PaymentIndetifierException;
 
 import java.util.ArrayList;
 

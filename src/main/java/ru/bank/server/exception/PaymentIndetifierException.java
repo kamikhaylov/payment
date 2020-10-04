@@ -1,4 +1,4 @@
-package ru.bank.exception.server;
+package ru.bank.server.exception;
 
 public class PaymentIndetifierException extends RuntimeException {
     private String paymentIndetifier;
