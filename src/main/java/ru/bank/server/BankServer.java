@@ -2,10 +2,10 @@ package ru.bank.server;
 
 import lombok.Getter;
 import lombok.ToString;
-import ru.bank.app.command.PaymentPhone;
 import ru.bank.server.baseUsers.BaseUsers;
 import ru.bank.server.baseUsers.HisoryTransaction;
 import ru.bank.server.baseUsers.InfoTransaction;
+import ru.bank.server.command.PaymentPhone;
 import ru.bank.server.exception.PaymentIndetifierException;
 import ru.bank.server.validation.PaymentIndetifierValidation;
 import ru.bank.users.User;
