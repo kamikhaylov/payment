@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 public class HisoryTransaction {
-    Map<Integer, InfoTransaction> mapBaseTransaction = new HashMap<>();
-    List<Integer> listNumberTransaction = new ArrayList<>();
+    private Map<Integer, InfoTransaction> mapBaseTransaction = new HashMap<>();
+    private List<Integer> listNumberTransaction = new ArrayList<>();
 
     public Integer newNumberTransaction() {
         int newNumberTransaction, lastNumbertTransaction;
@@ -27,7 +27,7 @@ public class HisoryTransaction {
         mapBaseTransaction.put(infoTransaction.getNumberTransaction(), infoTransaction);
     }
 
-    public void viewDetailsTransaction(int numberTransaction) {
-        System.out.println(mapBaseTransaction.get(numberTransaction));
+    public String viewDetailsTransaction(int numberTransaction) {
+        return String.valueOf(mapBaseTransaction.get(numberTransaction));
     }
 }

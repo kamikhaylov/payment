@@ -1,4 +1,4 @@
-package ru.bank.command;
+package ru.bank.app.command;
 
 import java.util.ArrayList;
 import java.util.List;

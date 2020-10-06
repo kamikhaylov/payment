@@ -2,7 +2,7 @@ package ru.bank.server;
 
 import lombok.Getter;
 import lombok.ToString;
-import ru.bank.command.PaymentPhone;
+import ru.bank.app.command.PaymentPhone;
 import ru.bank.server.baseUsers.BaseUsers;
 import ru.bank.server.baseUsers.HisoryTransaction;
 import ru.bank.server.baseUsers.InfoTransaction;
@@ -15,9 +15,9 @@ import java.util.ArrayList;
 @Getter
 @ToString
 public class BankServer implements Server {
-    ArrayList<String> listPaymentIdentifier = new ArrayList<String>();
-    BaseUsers baseUsers = new BaseUsers();
-    HisoryTransaction hisoryTransaction = new HisoryTransaction();
+    private ArrayList<String> listPaymentIdentifier = new ArrayList<String>();
+    private BaseUsers baseUsers = new BaseUsers();
+    private HisoryTransaction hisoryTransaction = new HisoryTransaction();
     private String ip;
     private String port;
     private String protocol;
@@ -31,7 +31,8 @@ public class BankServer implements Server {
     }
 
     @Override
-    public void makePaymentPhone(int transferAmount, String сurrencyMoney, User user, User client, String paymentIdentifier) {
+    public String makePaymentPhone(int transferAmount, String сurrencyMoney, User user, User client, String paymentIdentifier) {
+        String result = "";
         System.out.println("Получен запрос от пользователя " + user.getNumberPhone());
         PaymentIndetifierValidation paymentIndetifierValidation = new PaymentIndetifierValidation(paymentIdentifier, listPaymentIdentifier);
 
@@ -40,7 +41,7 @@ public class BankServer implements Server {
             paymentIndetifierValidation.checkDoublePaymentPhone();
             listPaymentIdentifier.add(paymentIdentifier);
             PaymentPhone paymentPhone = new PaymentPhone();
-            paymentPhone.pay(transferAmount, сurrencyMoney, user.getNumberAccount().getNumberAccount(), client.getNumberPhone());
+            result = paymentPhone.pay(transferAmount, сurrencyMoney, user.getNumberAccount().getNumberAccount(), client.getNumberPhone());
             InfoTransaction infoTransaction = new InfoTransaction(numberTransaction, user.getNumberAccount().getNumberAccount(), client.getNumberPhone(), transferAmount, сurrencyMoney);
             hisoryTransaction.putNumberTransaction(infoTransaction);
         } catch (PaymentIndetifierException e) {
@@ -48,5 +49,6 @@ public class BankServer implements Server {
             System.out.println(e.getPaymentIndetifier());
             throw e;
         }
+        return result;
     }
 }

@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BaseUsers {
-    Map<String, User> mapBaseUser = new HashMap<>();
+    private Map<String, User> mapBaseUser = new HashMap<>();
 
     public void putUser(User user) {
         mapBaseUser.put(user.getNumberPhone(), user);
     }
 
-    public void viewDetailsUser(String numberPhone) {
-        System.out.println(mapBaseUser.get(numberPhone));
+    public String viewDetailsUser(String numberPhone) {
+        return String.valueOf(mapBaseUser.get(numberPhone));
     }
 }

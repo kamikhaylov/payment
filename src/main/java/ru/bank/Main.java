@@ -27,16 +27,16 @@ public class Main {
         int transferAmount = 1000;
         String currencyMoney = СurrencyMoney.RUB.name();
 
-        // Инициализируем приложение и запускаем запрос оплаты
+        // Инициализируем приложение и запускаем эмитацию запроса оплаты с выводом результата на консоль
         WebApplication webApplication = new WebApplication();
-        webApplication.makePaymentPhone(transferAmount, currencyMoney, user, client, bankServer);
+        System.out.println(webApplication.makePaymentPhone(transferAmount, currencyMoney, user, client, bankServer));
 
-        // Запрос деталей пользователя
+        // Эмитация запроса деталей пользователя
         System.out.print("Детали пользователя: ");
-        bankServer.getBaseUsers().viewDetailsUser("+79001111111");
+        System.out.println(webApplication.viewDetailsUser("+79001111111", bankServer));
 
-        // Запрос информации о платеже
+        // Эмитация запроса информации о платеже
         System.out.print("Детали платежа: ");
-        bankServer.getHisoryTransaction().viewDetailsTransaction(1);
+        System.out.println(webApplication.viewDetailsTransaction(1, bankServer));
     }
 }

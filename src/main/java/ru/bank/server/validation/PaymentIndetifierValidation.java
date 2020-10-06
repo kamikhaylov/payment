@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class PaymentIndetifierValidation {
     private String paymentIndetifier;
-    ArrayList<String> listPaymentIndetifier = new ArrayList<>();
+    private ArrayList<String> listPaymentIndetifier = new ArrayList<>();
 
     public PaymentIndetifierValidation checkDoublePaymentPhone() throws PaymentIndetifierException {
         for (String list : listPaymentIndetifier) {

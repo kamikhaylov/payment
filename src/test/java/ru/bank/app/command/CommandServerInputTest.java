@@ -1,4 +1,4 @@
-package ru.bank.command;
+package ru.bank.app.command;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,10 +39,10 @@ class CommandServerInputTest {
     @Test
     void execute() {
         try {
-            commandServerInput.execute(transferAmount, currencyMoney, user, client, bankServer, generateIndenifier.generateIndenifier(user.getNumberPhone()));
+            commandServerInput.executePayment(transferAmount, currencyMoney, user, client, bankServer, generateIndenifier.generateIndenifier(user.getNumberPhone()));
 //        Эмитация повторных запросов
-            commandServerInput.execute(transferAmount, currencyMoney, user, client, bankServer, "90011111111");
-            commandServerInput.execute(transferAmount, currencyMoney, user, client, bankServer, "90011111111");
+            commandServerInput.executePayment(transferAmount, currencyMoney, user, client, bankServer, "90011111111");
+            commandServerInput.executePayment(transferAmount, currencyMoney, user, client, bankServer, "90011111111");
         } catch (PaymentIndetifierException e) {
             System.out.println(e);
             System.out.println(e.getPaymentIndetifier());

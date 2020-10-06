@@ -1,4 +1,4 @@
-package ru.bank.command;
+package ru.bank.app.command;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
