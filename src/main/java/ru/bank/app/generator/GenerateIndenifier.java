@@ -1,20 +1,20 @@
-package ru.bank.app.command;
+package ru.bank.app.generator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GenerateIndenifier {
-    List<String> listPaymentIndentifier = new ArrayList<String>();
+    private List<String> listPaymentIndentifier = new ArrayList<String>();
     private String identifier;
 
     public String generateIndenifier(String numberPhone) {
         String number = numberPhone.substring(2);
-        int ID = 0;
-        identifier = number + ID;
+        int id = 0;
+        identifier = number + id;
         for (String list : listPaymentIndentifier) {
             if (list.equals(identifier)) {
-                ID++;
-                identifier = number + ID;
+                id++;
+                identifier = number + id;
             }
         }
         listPaymentIndentifier.add(identifier);

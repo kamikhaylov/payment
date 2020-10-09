@@ -10,7 +10,8 @@ public class HisoryTransaction {
     private List<Integer> listNumberTransaction = new ArrayList<>();
 
     public Integer newNumberTransaction() {
-        int newNumberTransaction, lastNumbertTransaction;
+        int newNumberTransaction;
+        int lastNumbertTransaction;
 
         if (listNumberTransaction.size() == 0) {
             int numberTransaction = 0;

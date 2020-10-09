@@ -1,14 +1,14 @@
 package ru.bank.app;
 
-import ru.bank.server.BankServer;
 import ru.bank.users.User;
+import ru.bank.users.paymentAttributes.Сurrency;
 
 public interface Application {
 
-    String makePaymentPhone(int transferAmount, String currencyMoney, User user, User client, BankServer bankServer);
+    String makePhonePayment(int transferAmount, Сurrency сurrency, User user, User client);
 
-    String viewDetailsUser(String numberPhone, BankServer bankServer);
+    String viewDetailsUser(String numberPhone);
 
-    String viewDetailsTransaction(int numberTransaction, BankServer bankServer);
+    String viewDetailsTransaction(int numberTransaction);
 
 }

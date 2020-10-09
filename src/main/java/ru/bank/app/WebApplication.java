@@ -1,53 +1,56 @@
 package ru.bank.app;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import ru.bank.app.command.CommandServerInput;
-import ru.bank.app.command.GenerateIndenifier;
-import ru.bank.app.exception.NumberAccountException;
-import ru.bank.app.exception.NumberPhoneException;
-import ru.bank.app.validation.NumberAccountValidation;
-import ru.bank.app.validation.NumberPhoneValidation;
+import ru.bank.app.exception.AccountException;
+import ru.bank.app.exception.PhoneException;
+import ru.bank.app.generator.GenerateIndenifier;
+import ru.bank.app.validation.ValidatorAccount;
+import ru.bank.app.validation.ValidatorPhone;
 import ru.bank.server.BankServer;
 import ru.bank.users.User;
-import ru.bank.users.paymentAttributes.NumberAccount;
+import ru.bank.users.paymentAttributes.Account;
+import ru.bank.users.paymentAttributes.Сurrency;
 
+@AllArgsConstructor
 @Getter
 public class WebApplication implements Application {
-    private GenerateIndenifier generateIndenifier = new GenerateIndenifier();
-    private CommandServerInput commandServerInput = new CommandServerInput();
-
-    public WebApplication() {
-    }
+    private GenerateIndenifier generateIndenifier;
+    private BankServer bankServer;
 
     @Override
-    public String makePaymentPhone(int transferAmount, String currencyMoney, User user, User client, BankServer bankServer) {
+    public String makePhonePayment(int transferAmount, Сurrency сurrency, User user, User client) {
         String result = "Ошибка при выполнении";
-        NumberPhoneValidation numberPhoneValidation = new NumberPhoneValidation(client.getNumberPhone());
-        NumberAccountValidation<NumberAccount> numberAccountValidation = new NumberAccountValidation<>(user.getNumberAccount());
+        ValidatorPhone numberPhoneValidation = new ValidatorPhone(client.getNumberPhone());
+        ValidatorAccount<Account> validatorAccount = new ValidatorAccount<>(user.getAccount());
 
         try {
             numberPhoneValidation.checkPrefix().checkLength().checkAllNumber();
-            numberAccountValidation.checkLength().checkAllNumber();
-            result = commandServerInput.executePayment(transferAmount, currencyMoney, user, client, bankServer, generateIndenifier.generateIndenifier(user.getNumberPhone()));
-        } catch (NumberPhoneException e) {
+        } catch (PhoneException e) {
             System.out.println(e);
             System.out.println(e.getNumberPhone());
             throw e;
-        } catch (NumberAccountException e) {
+        }
+
+        try {
+            validatorAccount.checkLength().checkAllNumber();
+        } catch (AccountException e) {
             System.out.println(e);
             System.out.println(e.getNumberAccount());
             throw e;
         }
+
+        result = bankServer.makePhonePayment(transferAmount, сurrency, user, client, generateIndenifier.generateIndenifier(user.getNumberPhone()));
         return result;
     }
 
     @Override
-    public String viewDetailsUser(String numberPhone, BankServer bankServer) {
-        return commandServerInput.requestDetailsUser(numberPhone, bankServer);
+    public String viewDetailsUser(String numberPhone) {
+        return bankServer.getBaseUsers().viewDetailsUser(numberPhone);
     }
 
     @Override
-    public String viewDetailsTransaction(int numberTransaction, BankServer bankServer) {
-        return commandServerInput.requestDetailsTransaction(numberTransaction, bankServer);
+    public String viewDetailsTransaction(int numberTransaction) {
+        return bankServer.getHisoryTransaction().viewDetailsTransaction(numberTransaction);
     }
 }
