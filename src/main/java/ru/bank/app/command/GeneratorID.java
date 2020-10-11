@@ -1,23 +1,26 @@
-package ru.bank.app.generator;
+package ru.bank.app.command;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public class GenerateIndenifier {
-    private List<String> listPaymentIndentifier = new ArrayList<String>();
+public class GeneratorID {
+    private List<String> listPaymentID = new ArrayList<String>();
     private String identifier;
 
     public String generateIndenifier(String numberPhone) {
         String number = numberPhone.substring(2);
-        int id = 0;
+        AtomicInteger id = new AtomicInteger();
         identifier = number + id;
-        for (String list : listPaymentIndentifier) {
+
+        listPaymentID.forEach(list -> {
             if (list.equals(identifier)) {
-                id++;
+                id.getAndIncrement();
                 identifier = number + id;
             }
-        }
-        listPaymentIndentifier.add(identifier);
+        });
+
+        listPaymentID.add(identifier);
         return identifier;
     }
 }

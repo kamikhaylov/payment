@@ -2,12 +2,16 @@ package ru.bank;
 
 import ru.bank.app.Application;
 import ru.bank.app.WebApplication;
-import ru.bank.app.generator.GenerateIndenifier;
+import ru.bank.app.command.GeneratorID;
 import ru.bank.server.BankServer;
+import ru.bank.server.baseUsers.BaseUsers;
+import ru.bank.server.baseUsers.HisoryTransaction;
 import ru.bank.users.User;
 import ru.bank.users.paymentAttributes.Account;
 import ru.bank.users.paymentAttributes.AccountIndividual;
 import ru.bank.users.paymentAttributes.Сurrency;
+
+import java.util.ArrayList;
 
 public class Main {
 
@@ -21,12 +25,12 @@ public class Main {
         User client = new User("+79002222222");
 
         // Инициализируется сервер для проведения оплаты
-        BankServer bankServer = new BankServer("192.168.0.1", "8080", "TCP", "bank");
+        BankServer bankServer = new BankServer(new ArrayList<String>(), new BaseUsers(), new HisoryTransaction(), "192.168.0.1", "8080", "TCP", "bank");
         // Добавление пользователя в базу данных на сервере
         bankServer.getBaseUsers().putUser(user);
 
         // Инициализируем приложение и запускаем эмитацию запроса оплаты с выводом результата на консоль
-        Application webApplication = new WebApplication(new GenerateIndenifier(), bankServer);
+        Application webApplication = new WebApplication(new GeneratorID(), bankServer);
 
         System.out.println(webApplication.makePhonePayment(1000, Сurrency.RUB, user, client));
 

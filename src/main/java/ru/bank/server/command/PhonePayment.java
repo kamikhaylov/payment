@@ -1,18 +1,16 @@
 package ru.bank.server.command;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import ru.bank.users.paymentAttributes.Сurrency;
 
 @AllArgsConstructor
-@Getter
 public class PhonePayment implements Pay {
 
     @Override
-    public String pay(int transferAmount, Сurrency сurrency, String numberAccountUser, String numberPhoneClient) {
+    public String pay(int transferAmount, Сurrency сurrency, String accountUser, String phoneClient) {
 
-        return "Оплата со счета пользователя: " + numberAccountUser +
-                " на номер телефона клиента: " + numberPhoneClient + " произведена успешно. \n" +
+        return "Оплата со счета пользователя: " + accountUser +
+                " на номер телефона клиента: " + phoneClient + " произведена успешно. \n" +
                 "Сумма платежа: " + transferAmount + " " + сurrency;
     }
 }

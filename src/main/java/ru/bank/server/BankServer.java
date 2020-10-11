@@ -1,5 +1,6 @@
 package ru.bank.server;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 import ru.bank.server.baseUsers.BaseUsers;
@@ -13,27 +14,21 @@ import ru.bank.users.paymentAttributes.Сurrency;
 
 import java.util.ArrayList;
 
+@AllArgsConstructor
 @Getter
 @ToString
 public class BankServer implements Server {
-    private ArrayList<String> listPaymentIdentifier = new ArrayList<String>();
-    private BaseUsers baseUsers = new BaseUsers();
-    private HisoryTransaction hisoryTransaction = new HisoryTransaction();
+    private ArrayList<String> listPaymentIdentifier;
+    private BaseUsers baseUsers;
+    private HisoryTransaction hisoryTransaction;
     private String ip;
     private String port;
     private String protocol;
     private String server;
 
-    public BankServer(String ip, String port, String protocol, String server) {
-        this.ip = ip;
-        this.port = port;
-        this.protocol = protocol;
-        this.server = server;
-    }
-
     @Override
     public String makePhonePayment(int transferAmount, Сurrency сurrency, User user, User client, String paymentIdentifier) {
-        String result = "";
+        String result = "Ошибка при выполнении";
         System.out.println("Получен запрос от пользователя " + user.getNumberPhone());
         ValidatorPaymentIndetifier validatorPaymentIndetifier = new ValidatorPaymentIndetifier(paymentIdentifier, listPaymentIdentifier);
         int numberTransaction = hisoryTransaction.newNumberTransaction();

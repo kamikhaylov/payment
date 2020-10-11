@@ -2,9 +2,9 @@ package ru.bank.app;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import ru.bank.app.command.GeneratorID;
 import ru.bank.app.exception.AccountException;
 import ru.bank.app.exception.PhoneException;
-import ru.bank.app.generator.GenerateIndenifier;
 import ru.bank.app.validation.ValidatorAccount;
 import ru.bank.app.validation.ValidatorPhone;
 import ru.bank.server.BankServer;
@@ -15,7 +15,7 @@ import ru.bank.users.paymentAttributes.Сurrency;
 @AllArgsConstructor
 @Getter
 public class WebApplication implements Application {
-    private GenerateIndenifier generateIndenifier;
+    private GeneratorID generatorID;
     private BankServer bankServer;
 
     @Override
@@ -40,7 +40,7 @@ public class WebApplication implements Application {
             throw e;
         }
 
-        result = bankServer.makePhonePayment(transferAmount, сurrency, user, client, generateIndenifier.generateIndenifier(user.getNumberPhone()));
+        result = bankServer.makePhonePayment(transferAmount, сurrency, user, client, generatorID.generateIndenifier(user.getNumberPhone()));
         return result;
     }
 
