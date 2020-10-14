@@ -7,7 +7,6 @@ import ru.bank.app.exception.AccountException;
 import ru.bank.app.exception.PhoneException;
 import ru.bank.app.validation.ValidatorAccount;
 import ru.bank.app.validation.ValidatorPhone;
-import ru.bank.server.BankServer;
 import ru.bank.users.User;
 import ru.bank.users.paymentAttributes.Account;
 import ru.bank.users.paymentAttributes.Сurrency;
@@ -16,7 +15,7 @@ import ru.bank.users.paymentAttributes.Сurrency;
 @Getter
 public class WebApplication implements Application {
     private GeneratorID generatorID;
-    private BankServer bankServer;
+//    private BankServer bankServer;
 
     @Override
     public String makePhonePayment(int transferAmount, Сurrency сurrency, User user, User client) {
@@ -40,17 +39,17 @@ public class WebApplication implements Application {
             throw e;
         }
 
-        result = bankServer.makePhonePayment(transferAmount, сurrency, user, client, generatorID.generateIndenifier(user.getNumberPhone()));
+//        result = bankServer.makePhonePayment(transferAmount, сurrency, user, client, generatorID.generateIndenifier(user.getNumberPhone()));
         return result;
     }
 
-    @Override
-    public String viewDetailsUser(String numberPhone) {
-        return bankServer.getBaseUsers().viewDetailsUser(numberPhone);
-    }
+//    @Override
+//    public String viewDetailsUser(String numberPhone) {
+//        return bankServer.getBaseUsers().viewDetailsUser(numberPhone);
+//    }
 
-    @Override
-    public String viewDetailsTransaction(int numberTransaction) {
-        return bankServer.getHisoryTransaction().viewDetailsTransaction(numberTransaction);
-    }
+//    @Override
+//    public String viewDetailsTransaction(int numberTransaction) {
+//        return bankServer.getHisoryTransaction().viewDetailsTransaction(numberTransaction);
+//    }
 }

@@ -1,9 +1,10 @@
-package ru.bank.server.baseUsers;
+package ru.bank.users.baseUsers;
 
 import ru.bank.users.User;
 
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class BaseUsers {
     private Map<String, User> mapBaseUser = new HashMap<>();

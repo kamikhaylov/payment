@@ -1,4 +1,4 @@
-package ru.bank.server.baseUsers;
+package ru.bank.users.baseUsers;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
