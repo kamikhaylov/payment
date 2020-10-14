@@ -7,8 +7,8 @@ public interface Application {
 
     String makePhonePayment(int transferAmount, Сurrency сurrency, User user, User client);
 
-//    String viewDetailsUser(String numberPhone);
-//
-//    String viewDetailsTransaction(int numberTransaction);
+    String viewDetailsUser(String numberPhone);
+
+    String viewDetailsTransaction(int numberTransaction);
 
 }
