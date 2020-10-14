@@ -1,5 +1,8 @@
 package ru.bank.app;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.bank.app.application.WebApplication;
 import ru.bank.app.command.GeneratorID;
 import ru.bank.server.BankServer;
 import ru.bank.users.User;
@@ -27,8 +30,11 @@ public class Main {
         // Добавление пользователя в базу данных на сервере
         bankServer.getBaseUsers().putUser(user);
 
-        // Инициализируем приложение и запускаем эмитацию запроса оплаты с выводом результата на консоль
-        Application webApplication = new WebApplication(new GeneratorID(), bankServer);
+        // Bean. Инициализируем приложение и запускаем эмитацию запроса оплаты с выводом результата на консоль
+        ApplicationContext context = new AnnotationConfigApplicationContext("ru.bank.app.application");
+        WebApplication webApplication = context.getBean(WebApplication.class);
+        webApplication.setGeneratorID(new GeneratorID());
+        webApplication.setBankServer(bankServer);
 
         System.out.println(webApplication.makePhonePayment(1000, Сurrency.RUB, user, client));
 

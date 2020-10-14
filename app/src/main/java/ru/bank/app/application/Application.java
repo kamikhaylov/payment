@@ -1,4 +1,4 @@
-package ru.bank.app;
+package ru.bank.app.application;
 
 import ru.bank.users.User;
 import ru.bank.users.paymentAttributes.Сurrency;

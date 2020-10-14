@@ -1,7 +1,10 @@
-package ru.bank.app;
+package ru.bank.app.application;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import ru.bank.app.command.GeneratorID;
 import ru.bank.app.exception.AccountException;
 import ru.bank.app.exception.PhoneException;
@@ -14,9 +17,21 @@ import ru.bank.users.paymentAttributes.Сurrency;
 
 @AllArgsConstructor
 @Getter
+@Setter
+@Component
 public class WebApplication implements Application {
     private GeneratorID generatorID;
     private BankServer bankServer;
+
+    @Bean
+    public GeneratorID getGeneratorID() {
+        return generatorID;
+    }
+
+    @Bean
+    public BankServer getBankServer() {
+        return bankServer;
+    }
 
     @Override
     public String makePhonePayment(int transferAmount, Сurrency сurrency, User user, User client) {
