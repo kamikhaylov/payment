@@ -1,7 +1,7 @@
 package ru.bank.app.validation;
 
 import ru.bank.app.exception.AccountException;
-import ru.bank.users.paymentAttributes.Account;
+import ru.bank.common.users.paymentAttributes.Account;
 
 import java.util.function.Supplier;
 

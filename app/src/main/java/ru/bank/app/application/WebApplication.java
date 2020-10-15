@@ -8,12 +8,12 @@ import ru.bank.app.exception.AccountException;
 import ru.bank.app.exception.PhoneException;
 import ru.bank.app.validation.ValidatorAccount;
 import ru.bank.app.validation.ValidatorPhone;
+import ru.bank.common.users.User;
+import ru.bank.common.users.baseUsers.BaseUsers;
+import ru.bank.common.users.baseUsers.HisoryTransaction;
+import ru.bank.common.users.paymentAttributes.Account;
+import ru.bank.common.users.paymentAttributes.Сurrency;
 import ru.bank.server.BankServer;
-import ru.bank.users.User;
-import ru.bank.users.baseUsers.BaseUsers;
-import ru.bank.users.baseUsers.HisoryTransaction;
-import ru.bank.users.paymentAttributes.Account;
-import ru.bank.users.paymentAttributes.Сurrency;
 
 import java.util.ArrayList;
 

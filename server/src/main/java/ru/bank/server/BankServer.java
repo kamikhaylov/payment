@@ -3,14 +3,14 @@ package ru.bank.server;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
+import ru.bank.common.users.User;
+import ru.bank.common.users.baseUsers.BaseUsers;
+import ru.bank.common.users.baseUsers.HisoryTransaction;
+import ru.bank.common.users.baseUsers.InfoTransaction;
+import ru.bank.common.users.paymentAttributes.Сurrency;
 import ru.bank.server.command.PhonePayment;
 import ru.bank.server.exception.PaymentIndetifierException;
 import ru.bank.server.validation.ValidatorPaymentIndetifier;
-import ru.bank.users.User;
-import ru.bank.users.baseUsers.BaseUsers;
-import ru.bank.users.baseUsers.HisoryTransaction;
-import ru.bank.users.baseUsers.InfoTransaction;
-import ru.bank.users.paymentAttributes.Сurrency;
 
 import java.util.ArrayList;
 

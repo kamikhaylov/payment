@@ -1,7 +1,7 @@
 package ru.bank.server.command;
 
 import lombok.AllArgsConstructor;
-import ru.bank.users.paymentAttributes.Сurrency;
+import ru.bank.common.users.paymentAttributes.Сurrency;
 
 @AllArgsConstructor
 public class PhonePayment implements Pay {

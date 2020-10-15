@@ -1,7 +1,7 @@
 package ru.bank.app.application;
 
-import ru.bank.users.User;
-import ru.bank.users.paymentAttributes.Сurrency;
+import ru.bank.common.users.User;
+import ru.bank.common.users.paymentAttributes.Сurrency;
 
 public interface Application {
 

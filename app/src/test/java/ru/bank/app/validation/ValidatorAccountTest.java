@@ -4,8 +4,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.bank.app.exception.AccountException;
-import ru.bank.users.paymentAttributes.AccountIndividual;
-import ru.bank.users.paymentAttributes.Сurrency;
+import ru.bank.common.users.paymentAttributes.AccountIndividual;
+import ru.bank.common.users.paymentAttributes.Сurrency;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
