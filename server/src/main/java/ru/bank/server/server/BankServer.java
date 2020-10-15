@@ -1,4 +1,4 @@
-package ru.bank.server;
+package ru.bank.server.server;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

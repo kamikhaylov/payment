@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import ru.bank.app.application.WebApplication;
+import ru.bank.app.exception.WebInternalErrorException;
 import ru.bank.app.service.WebService;
 import ru.bank.common.users.User;
 import ru.bank.common.users.paymentAttributes.Account;
@@ -30,6 +31,10 @@ public class WebRestController {
             @PathVariable("userId") String numberPhone,
             @PathVariable("accountId") String accountId,
             @PathVariable("clientsId") String numberPhoneClient) {
+
+        if (WebId != 1) {
+            throw new WebInternalErrorException("Web internal Error");
+        }
 
         Account debitAccountNumberUser = new AccountIndividual(accountId, 500000000, Сurrency.RUB);
         User user = new User(numberPhone, debitAccountNumberUser);

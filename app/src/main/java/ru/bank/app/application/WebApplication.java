@@ -1,34 +1,29 @@
 package ru.bank.app.application;
 
 import lombok.Getter;
-import lombok.Setter;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 import ru.bank.app.command.GeneratorID;
 import ru.bank.app.exception.AccountException;
 import ru.bank.app.exception.PhoneException;
 import ru.bank.app.validation.ValidatorAccount;
 import ru.bank.app.validation.ValidatorPhone;
+import ru.bank.common.messages.Request;
 import ru.bank.common.users.User;
-import ru.bank.common.users.baseUsers.BaseUsers;
-import ru.bank.common.users.baseUsers.HisoryTransaction;
 import ru.bank.common.users.paymentAttributes.Account;
 import ru.bank.common.users.paymentAttributes.Сurrency;
-import ru.bank.server.BankServer;
-
-import java.util.ArrayList;
 
 @Getter
-@Setter
 @Component
 public class WebApplication implements Application {
     private GeneratorID generatorID;
-    private BankServer bankServer;
+
 
     public WebApplication() {
         this.generatorID = new GeneratorID();
-        this.bankServer = new BankServer(new ArrayList<String>(), new BaseUsers(), new HisoryTransaction(), "192.168.0.1", "8080", "TCP", "bank");
     }
-
 
     @Override
     public String makePhonePayment(int transferAmount, Сurrency сurrency, User user, User client) {
@@ -52,17 +47,16 @@ public class WebApplication implements Application {
             throw e;
         }
 
-        result = bankServer.makePhonePayment(transferAmount, сurrency, user, client, generatorID.generateIndenifier(user.getNumberPhone()));
+        RestTemplate restTemplate = new RestTemplate();
+        HttpEntity<Request> request = new HttpEntity<>(
+                new Request(transferAmount, сurrency, user, client,
+                        generatorID.generateIndenifier(user.getNumberPhone())));
+
+        ResponseEntity<String> responseEntityStr = restTemplate.
+                postForEntity("http://127.0.0.1:9090/servers/1/users/" + user.getNumberPhone(),
+                        request, String.class);
+
+        result = "responseEntityStr.getBody()" + responseEntityStr.getBody();
         return result;
-    }
-
-    @Override
-    public String viewDetailsUser(String numberPhone) {
-        return bankServer.getBaseUsers().viewDetailsUser(numberPhone);
-    }
-
-    @Override
-    public String viewDetailsTransaction(int numberTransaction) {
-        return bankServer.getHisoryTransaction().viewDetailsTransaction(numberTransaction);
     }
 }
