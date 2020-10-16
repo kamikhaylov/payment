@@ -21,10 +21,6 @@ public class BankServer implements Server {
     private ArrayList<String> listPaymentIdentifier;
     private BaseUsers baseUsers;
     private HisoryTransaction hisoryTransaction;
-    private String ip;
-    private String port;
-    private String protocol;
-    private String server;
 
     @Override
     public String makePhonePayment(int transferAmount, Сurrency сurrency, User user, User client, String paymentIdentifier) {
