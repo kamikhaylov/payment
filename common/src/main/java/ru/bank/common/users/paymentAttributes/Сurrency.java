@@ -4,7 +4,9 @@ import lombok.Getter;
 
 @Getter
 public enum Сurrency {
-    RUB(643), USD(840), EUR(978);
+    RUB(643),
+    USD(840),
+    EUR(978);
 
     private int code;
 

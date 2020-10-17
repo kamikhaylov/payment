@@ -1,6 +1,7 @@
 package ru.bank.app.application;
 
 import lombok.Getter;
+import lombok.extern.java.Log;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,7 @@ import ru.bank.common.users.paymentAttributes.Сurrency;
 
 @Getter
 @Component
+@Log
 public class WebApplication implements Application {
     private GeneratorID generatorID;
 
@@ -51,6 +53,8 @@ public class WebApplication implements Application {
         HttpEntity<Request> request = new HttpEntity<>(
                 new Request(transferAmount, сurrency, user, client,
                         generatorID.generateIndenifier(user.getNumberPhone())));
+
+        log.info("request.toString()" + request.toString());
 
         ResponseEntity<String> responseEntityStr = restTemplate.
                 postForEntity("http://127.0.0.1:9090/servers/1/users/" + user.getNumberPhone(),

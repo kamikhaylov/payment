@@ -1,6 +1,7 @@
 package ru.bank.app.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import ru.bank.common.users.paymentAttributes.Сurrency;
 
 @RestController
 @AllArgsConstructor
+@Log
 public class WebRestController {
 
     private WebService webService;
@@ -31,6 +33,8 @@ public class WebRestController {
             @PathVariable("userId") String numberPhone,
             @PathVariable("accountId") String accountId,
             @PathVariable("clientsId") String numberPhoneClient) {
+
+        log.info("userId " + numberPhone + " accountId " + accountId + " clientsId " + numberPhoneClient);
 
         if (WebId != 1) {
             throw new WebInternalErrorException("Web internal Error");
