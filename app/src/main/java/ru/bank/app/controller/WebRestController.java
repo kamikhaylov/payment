@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import ru.bank.app.application.WebApplication;
 import ru.bank.app.exception.WebInternalErrorException;
-import ru.bank.app.service.WebService;
 import ru.bank.common.users.User;
 import ru.bank.common.users.paymentAttributes.Account;
 import ru.bank.common.users.paymentAttributes.AccountIndividual;
@@ -20,21 +19,20 @@ import ru.bank.common.users.paymentAttributes.Сurrency;
 @Log
 public class WebRestController {
 
-    private WebService webService;
-
     @GetMapping("/Webs")
     public String getWebsStatus() {
         return "1 Web is ready.";
     }
 
-    @GetMapping("/Webs/{WebId}/users/{userId}/accounts/{accountId}/clients/{clientsId}")
+    @GetMapping("/Webs/{WebId}/users/{userId}/accounts/{accountId}/clients/{clientsId}/transferAmount/{transferAmount}")
     public String makePhonePayment(
             @PathVariable("WebId") Long WebId,
             @PathVariable("userId") String numberPhone,
             @PathVariable("accountId") String accountId,
-            @PathVariable("clientsId") String numberPhoneClient) {
+            @PathVariable("clientsId") String numberPhoneClient,
+            @PathVariable("transferAmount") int transferAmount) {
 
-        log.info("userId " + numberPhone + " accountId " + accountId + " clientsId " + numberPhoneClient);
+        log.info("userId " + numberPhone + " accountId " + accountId + " clientsId " + numberPhoneClient + " transferAmount " + transferAmount);
 
         if (WebId != 1) {
             throw new WebInternalErrorException("Web internal Error");
@@ -47,6 +45,6 @@ public class WebRestController {
         ApplicationContext context = new AnnotationConfigApplicationContext("ru.bank.app.application");
         WebApplication webApplication = context.getBean(WebApplication.class);
 
-        return webApplication.makePhonePayment(1000, Сurrency.RUB, user, client);
+        return webApplication.makePhonePayment(transferAmount, Сurrency.RUB, user, client);
     }
 }
