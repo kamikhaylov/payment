@@ -1,8 +1,10 @@
 package ru.bank.app.validation;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import ru.bank.common.users.paymentAttributes.Account;
 
+@AllArgsConstructor
 @Getter
 public class ValidatorAccount<T extends Account> {
     private T numberAccount;

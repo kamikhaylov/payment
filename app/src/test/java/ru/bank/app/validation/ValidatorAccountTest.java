@@ -22,13 +22,13 @@ class ValidatorAccountTest {
     @BeforeEach
     void setUp() {
         account1 = new AccountIndividual("111122223333444", 50000, Сurrency.RUB);
-        validator1 = new ValidatorAccount<AccountIndividual>(account1);
+        validator1 = new ValidatorAccount<>(account1);
 
         account2 = new AccountIndividual("11112222333344445", 50000, Сurrency.RUB);
-        validator2 = new ValidatorAccount<AccountIndividual>(account2);
+        validator2 = new ValidatorAccount<>(account2);
 
         account3 = new AccountIndividual("111122223333wwww", 50000, Сurrency.RUB);
-        validator3 = new ValidatorAccount<AccountIndividual>(account3);
+        validator3 = new ValidatorAccount<>(account3);
     }
 
     @AfterEach

@@ -22,7 +22,6 @@ import ru.bank.common.users.paymentAttributes.Сurrency;
 public class WebApplication implements Application {
     private GeneratorID generatorID;
 
-
     public WebApplication() {
         this.generatorID = new GeneratorID();
     }
