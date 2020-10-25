@@ -1,12 +1,17 @@
-package ru.bank.common.users.paymentAttributes;
+package ru.bank.server.users.paymentAttributes;
 
-public class AccountSavings extends Account {
+public class AccountIndividual extends Account {
     private String account;
     private int amount;
     private Сurrency сurrency;
 
-    public AccountSavings(String account, int amount, Сurrency сurrency) {
+    public AccountIndividual(String account, int amount, Сurrency сurrency) {
         super(account, amount, сurrency);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
     @Override
@@ -17,10 +22,5 @@ public class AccountSavings extends Account {
     @Override
     public int getAmount() {
         return super.getAmount();
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
     }
 }

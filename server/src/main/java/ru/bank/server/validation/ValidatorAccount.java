@@ -1,8 +1,8 @@
-package ru.bank.app.validation;
+package ru.bank.server.validation;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import ru.bank.common.users.paymentAttributes.Account;
+import ru.bank.server.users.paymentAttributes.Account;
 
 @AllArgsConstructor
 @Getter

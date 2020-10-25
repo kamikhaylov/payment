@@ -1,6 +1,6 @@
-package ru.bank.common.users.baseUsers;
+package ru.bank.server.users.baseUsers;
 
-import ru.bank.common.users.User;
+import ru.bank.server.users.User;
 
 import java.util.HashMap;
 import java.util.Map;

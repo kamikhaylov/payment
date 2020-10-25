@@ -1,4 +1,4 @@
-package ru.bank.common.users.baseUsers;
+package ru.bank.server.users.baseUsers;
 
 import java.util.ArrayList;
 import java.util.HashMap;

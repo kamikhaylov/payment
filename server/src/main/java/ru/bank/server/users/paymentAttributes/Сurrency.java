@@ -1,4 +1,4 @@
-package ru.bank.common.users.paymentAttributes;
+package ru.bank.server.users.paymentAttributes;
 
 import lombok.Getter;
 

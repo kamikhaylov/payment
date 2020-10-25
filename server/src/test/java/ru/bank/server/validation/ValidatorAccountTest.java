@@ -1,11 +1,11 @@
-package ru.bank.app.validation;
+package ru.bank.server.validation;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.bank.app.exception.AccountException;
-import ru.bank.common.users.paymentAttributes.AccountIndividual;
-import ru.bank.common.users.paymentAttributes.Сurrency;
+import ru.bank.server.exception.AccountException;
+import ru.bank.server.users.paymentAttributes.AccountIndividual;
+import ru.bank.server.users.paymentAttributes.Сurrency;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

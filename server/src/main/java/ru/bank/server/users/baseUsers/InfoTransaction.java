@@ -1,9 +1,9 @@
-package ru.bank.common.users.baseUsers;
+package ru.bank.server.users.baseUsers;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
-import ru.bank.common.users.paymentAttributes.Сurrency;
+import ru.bank.server.users.paymentAttributes.Сurrency;
 
 @AllArgsConstructor
 @Getter

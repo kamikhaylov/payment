@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import ru.bank.app.application.WebApplication;
 import ru.bank.app.exception.WebInternalErrorException;
-import ru.bank.common.users.User;
-import ru.bank.common.users.paymentAttributes.Account;
-import ru.bank.common.users.paymentAttributes.AccountIndividual;
-import ru.bank.common.users.paymentAttributes.Сurrency;
 
 @RestController
 @AllArgsConstructor
@@ -38,13 +34,9 @@ public class WebRestController {
             throw new WebInternalErrorException("Web internal Error");
         }
 
-        Account debitAccountNumberUser = new AccountIndividual(accountId, 500000000, Сurrency.RUB);
-        User user = new User(numberPhone, debitAccountNumberUser);
-        User client = new User(numberPhoneClient);
-
         ApplicationContext context = new AnnotationConfigApplicationContext("ru.bank.app.application");
         WebApplication webApplication = context.getBean(WebApplication.class);
 
-        return webApplication.makePhonePayment(transferAmount, Сurrency.RUB, user, client);
+        return webApplication.makePhonePayment(numberPhone, accountId, numberPhoneClient, transferAmount);
     }
 }

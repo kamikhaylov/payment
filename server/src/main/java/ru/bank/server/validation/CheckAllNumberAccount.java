@@ -1,7 +1,7 @@
-package ru.bank.app.validation;
+package ru.bank.server.validation;
 
-import ru.bank.app.exception.AccountException;
-import ru.bank.common.users.paymentAttributes.Account;
+import ru.bank.server.exception.AccountException;
+import ru.bank.server.users.paymentAttributes.Account;
 
 import java.util.function.Supplier;
 
