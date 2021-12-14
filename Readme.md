@@ -55,3 +55,12 @@ responseEntityStr.getBody(){"result":"Оплата со счета пользо�
                 "account": "1111222233336666",
                 "amount": 10000,
                 "сurrency": "RUB"}]}]
+
+![image](https://user-images.githubusercontent.com/43637775/146063542-0ea56f61-560f-49d6-abfa-ff75d20c9e94.png)
+
+
+
+![image](https://user-images.githubusercontent.com/43637775/146063271-8d4a150b-221a-4a07-9c15-7518c556bcf7.png)
+
+
+
