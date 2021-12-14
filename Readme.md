@@ -60,7 +60,8 @@ responseEntityStr.getBody(){"result":"Оплата со счета пользо�
 
 
 
-![image](https://user-images.githubusercontent.com/43637775/146063271-8d4a150b-221a-4a07-9c15-7518c556bcf7.png)
+![image](https://user-images.githubusercontent.com/43637775/146065755-d98c532d-617e-4bce-ab9c-2c2396ca9732.png)
+
 
 
 
